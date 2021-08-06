@@ -1,27 +1,31 @@
-class p{
-    void get()
-    {
-         System.out.println("Welcome");
-    }
-   
-    void msg()
-    {
-        
-        System.out.println("To Hell");
-    }
-    
-   
-    
-}
-class main{
-public static void main(String[] args)
+import java.util.*;
+
+
+class main
 {
-    
-   p q =new  p();
-   q.get();
-   q.msg();
-    
-    
-    
+	public static void main(String args[])
+	{  Scanner s=new Scanner(System.in);
+        System.out.println("1.User Defined 2.Pre Defined");
+         System.out.println("Eneter one");
+         int ch=s.nextInt();
+		try
+		{if(ch==1)
+            {
+                throw new MyException();
+            } else{
+                int n=10;
+            int k=n/0;
+            }
+			
+			
+		}
+		catch (ArithmeticException e)
+		{
+			System.out.println(e);
+		}
+        catch (MyException e)
+		{
+			System.out.println("It's bad ");
+		}
+	}
 }
-} 

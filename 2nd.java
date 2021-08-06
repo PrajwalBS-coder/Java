@@ -1,48 +1,40 @@
-class lamp
-{
-    int on;
-    lamp(int on)
+import java.util.*;
+class main{
+    public static void main(String args[])
     {
-        this.on=on;
-        
-    }
-    void onn()
-    {
-        System.out.println("true");
-    }
-    void off()
-    {
-        System.out.println("false");
-    }
-    
-    
+        Scanner s=new Scanner(System.in);
+        int a[]= new int[5];
+        String s1=null;
+        String s2="nnn";
+        int n=10;
+        System.out.println("1.Array 2.Arithimatic 3.Null Pointer");
+         System.out.println("Eneter one");
+         int ch=s.nextInt();
+         try
+         {
+              if(ch==1){
+                  a[5]=10;
+              } else if(ch==2){
+                  int tot=n/0;
+              }else
+              {
+                  if(s1.equals(s2))
+                  System.out.println("Equal");
+                  else System.out.println("Not Eqal");
+              }
+         }
+         catch(ArithmeticException e)
+         {
+             System.out.println(e);
+         }
+         catch(NullPointerException e)
+         {
+              System.out.println(e);
+         }
+         catch(ArrayIndexOutOfBoundsException e)
+         {
+              System.out.println(e);
+         }
 
-
-
-    public static void main(String[] args)
-    {
-        
-        
-        lamp led=new lamp(0);
-         
-        lamp halo=new lamp(1);
-        if(led.on==1)
-            led.onn();
-        else
-            led.off();
-    
-        if(halo.on==1)
-            halo.onn();
-        else
-            halo.off();
-        
-        
-        
-        
-        
-        
-        
     }
-    
-    
 }

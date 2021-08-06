@@ -1,14 +1,12 @@
-
- 
- class main { 
-    public static void main(String args[]) 
-    { 
-        String str = "We're!"; 
-        String[] arrOfStr = str.split("/"); 
+import java.util.*;
+class s1{
+   public void split(String str)
+    {String s=str;
+        String[] arrOfStr = s.split("/"); 
          System.out.println("Number of substrings: "+arrOfStr.length);
       try{
 
-          if(arrOfStr.length>1)
+          if(arrOfStr.length<2)
          {
              throw new MyException();
     
@@ -24,8 +22,19 @@
         
         } catch(MyException e)
         {
-           System.out.println(e); 
+           System.out.println("NOT FOUND!!!!"); 
            
         }
-    } 
+
+    }
+     public static void main(String args[]) 
+      {
+       Scanner s=new Scanner(System.in);
+        System.out.println("Eneter String");
+        String ss=s.nextLine();
+        s1 p = new s1();
+        p.split(ss);
+
+
+      }
 }

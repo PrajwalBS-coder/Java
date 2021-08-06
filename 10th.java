@@ -1,35 +1,37 @@
-class shapes
-{
-double area;
-    void area(float a,float b)
-    {
-        area=a*b;
-        System.out.println("Area Of rectangle:"+area);
-    }
-     void area(float a)
-    {
-        area=3.14*a*a;
-        System.out.println("Area Of circle:"+area);
-    }
-     void area(int a)
-    {
-        area=a*a;
-        System.out.println("Area Of square:"+area);
-    }
-    void area(float a,float b,float c)
-    {
-        area=(a+b)/2+c;
-        System.out.println("Area Of trapezium:"+area);
-    }
-    
+
+ class main {
+	public static void main(String[] args) 
+	{
+	    Thread thread = new Thread(new child(1, 50));
+	    thread.start();        
+	}
 }
-class main{
-    public static void main(String args[])
+class child extends Thread 
+{
+    Integer myID,limit; 
+    public child(int myID, int limit) 
     {
-        shapes s=new shapes();
-        s.area(10);
-        s.area(5f);
-        s.area(5.4f,5.4f);
-        s.area(2.5f,2.3f,2.5f);
+        this.myID = myID;
+        this.limit = limit;
     }
+    public void run() 
+    {
+        if (myID > limit) 
+              return;
+        else 
+        {
+              Thread thread = new Thread(new child((myID+1), limit));
+              thread.start();
+              try 
+              {
+                  thread.join();
+              } 
+              catch (InterruptedException e) 
+              {
+              	System.out.println(e);
+              }
+              System.out.println("Hello from Thread :" + myID);
+        }
+    }
+
 }

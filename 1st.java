@@ -1,48 +1,34 @@
-class lamp
-{
-    int on;
-    lamp(int on)
-    {
-        this.on=on;
-        
-    }
-    void onn()
-    {
-        System.out.println("true");
-    }
-    void off()
-    {
-        System.out.println("false");
-    }
-    
-    
-}
-class main
-{
-    public static void main(String[] args)
-    {
-        
-        
-        lamp led=new lamp(0);
-         
-        lamp halo=new lamp(1);
-        if(led.on==1)
-            led.onn();
-        else
-            led.off();
-    
-        if(halo.on==1)
-            halo.onn();
-        else
-            halo.off();
-        
-        
-        
-        
-        
-        
-        
-    }
-    
-    
+import java.util.Scanner;
+ class main {
+	public static void main(String[] arg)
+	{
+	int number;
+     Scanner sc = new Scanner(System.in);
+
+		
+                  System.out.println("Enter any valid Integer: ");
+
+			
+			try {
+
+				
+				number = Integer.parseInt(sc.next());
+
+				
+				System.out.println("You entered: "
+								+ number);
+
+				
+				            
+			}
+
+			
+			catch (NumberFormatException e) {
+
+				
+				System.out.println(
+					"NumberFormatException occured");
+			}
+		
+	}
 }

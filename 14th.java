@@ -1,43 +1,31 @@
-class bank1{
-	float basic, pf, da, hra, net, gross,it;
-	bank1(float basic){
-		this.basic = basic;
-	}
-	void sal(){
-		da =(float) ( 0.3 * basic);
-		hra = (float)(0.2 * basic);
-		pf = (float)(0.5 * basic);
-		it = (float)(0.1 * basic);
-		gross = basic + da + hra;
-		net = gross - pf - it;
-		System.out.println("salary is : "+ net);
-		
-	}
+ class main{  
+int amount=10000;  
+  
+synchronized void withdraw(int amount){  
+System.out.println("going to withdraw...");  
+  
+if(this.amount<amount){  
+System.out.println("Less balance; waiting for deposit...");  
+try{wait();}catch(Exception e){}  
+}  
+this.amount-=amount;  
+System.out.println("withdraw completed...");  
+}  
+  
+synchronized void deposit(int amount){  
+System.out.println("going to deposit...");  
+this.amount+=amount;  
+System.out.println("deposit completed... ");  
+notify();  
+}  
+public static void main(String args[]){  
+final main = new main();  
+new Thread(){  
+public void run(){c.withdraw(15000);}  
+}.start();  
+new Thread(){  
+public void run(){c.deposit(10000);}  
+}.start();  
+  
 }
-
-class employee extends bank1{
-	employee(float basic){
-		super(basic);
-	}
-	void sal(){
-		da =(float) ( 0.4 * basic);
-		hra = (float)(0.3 * basic);
-		pf = (float)(0.4 * basic);
-		it = (float)(0.1 * basic);
-		gross = basic + da + hra;
-		net = gross - pf - it;
-		System.out.println("salary is : "+ net);
-	}
-	
-} 
-class main {
-
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		employee e = new employee(1500);
-		bank1 e1 = new bank1(1500);
-		e.sal();
-		e1.sal();
-	}
-
 }
